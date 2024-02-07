@@ -28,9 +28,15 @@ import lombok.*;
 @ToString
 
 public class User extends BaseEntity{
+<<<<<<< HEAD
 	@Column(length = 20, unique = true,nullable = false)
 	private String userName;	
 	@Column(length = 20, unique = true,nullable = false)
+=======
+	@Column(length = 20,nullable = false)
+	private String userName;	
+	@Column(length = 20,nullable = false)
+>>>>>>> f8dbf985a9b2f33fb40eb24aee6747431822f4fc
 	private String s_d_w;
 	@Column(length=30,nullable = false)
 	private String email;
