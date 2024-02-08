@@ -1,5 +1,7 @@
 package com.app.service;
 
+import javax.websocket.Session;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +24,8 @@ private ModelMapper mapper;
 public User authenticateUser(String em, String pass) {
 
 	return  userDao.findByEmailAndPassword(em, pass).orElseThrow();
+	
+	
 }
 
 @Override
@@ -30,6 +34,8 @@ public String addUserDetails( UserDTO userdto) {
 	userDao.save(user);
 	return "Added new user ....";
 }
+
+
 
 
 }
