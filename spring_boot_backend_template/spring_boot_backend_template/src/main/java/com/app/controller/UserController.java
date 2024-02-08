@@ -43,7 +43,7 @@ public class UserController {
 			User user = userService.authenticateUser(em, pass);
 			System.out.println(user);
 			// add validated user details under session scope
-			session.setAttribute("emp_details", user);
+			session.setAttribute("user_details", user);
 			// role based authorization
 			if (user.getRole() == Role.APPLICANT) {
 				// user role , redirect to user details
