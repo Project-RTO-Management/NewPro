@@ -14,13 +14,14 @@ import {
 import Home from './assets/components/Home';
 // import Login from './assets/components/Login';
 
+
 import UserDashboard from './assets/components/UserDashboard';
 import RegisterForm from './assets/components/RegistrationForm';
-import RegisterForm1 from './assets/components/Registration1';
-import RegisterForm2 from './assets/components/Registration2';
+import RegisterVL from './assets/components/RegisterVL';
 import AboutUs from './assets/components/About';
 import Services from './assets/components/Services';
 import ContactUs from './assets/components/ContactUs';
+import RegisterNVL from './assets/components/RegisterNVL';
 function App() {
   const [color, setColor] = useState('olive')
 
@@ -33,10 +34,10 @@ function App() {
     <Routes>
     
       <Route path="/" exact element={<Home/>} />
-      <Route path="/Dashboard" exact element={<UserDashboard/>} />
-      {/* <Route path="/register" element={<RegisterForm2/>}/> */}
-      {/* <Route path="/register" element={<RegisterForm1/>}/> */}
+      <Route path="/dashboard" exact element={<UserDashboard/>} />
       <Route path="/register"  element={<RegisterForm/>} />
+      <Route path="/dashboard/registerVL" element={<RegisterVL/>}/>
+      <Route path="/dashboard/registerNVL" element={<RegisterNVL/>}/>
       <Route path="/about"  element={<AboutUs/>} />
       <Route path="/service" exact element={<Services/>} />
       <Route path="/contact" exact element={<ContactUs/>} />

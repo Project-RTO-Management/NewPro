@@ -5,24 +5,24 @@ import '../css/list.css'
 const SideBar = ({ username }) => {
   return (
     <>
-    
-    <div className="row mt-5 " >
-      
+
+      <div className="row mt-5 " >
+
         <div className="">
           <div className="card">
             <div className="card-body">
               <h5 className="card-title">Licence</h5>
               <ul className="list-group">
                 <li className="list-group-item">
-                  <Link to="/dashboard">Apply For New Licence</Link>
+                  <Link to="">Apply For New Licence</Link>
                 </li>
-                  {/* <li className="list-group-item">
+                {/* <li className="list-group-item">
                     <Link to="/dashboard/profile">Apply For Duplicate Licence</Link>
                   </li> */}
                 <li className="list-group-item">
-                  <Link to="/dashboard/settings">Apply For Renew Licence</Link>
+                  <Link to="/">Apply For Renew Licence</Link>
                 </li>
-                
+
                 {/* Add more navigation links as needed */}
               </ul>
             </div>
@@ -30,10 +30,10 @@ const SideBar = ({ username }) => {
               <h5 className="card-title">Vehical Registration</h5>
               <ul className="list-group">
                 <li className="list-group-item">
-                  <Link to="/dashboard">Apply For New Vehical Registration</Link>
+                  <Link to="/dashboard/registerVL">Apply For New Vehical Registration</Link>
                 </li>
                 <li className="list-group-item">
-                  <Link to="/dashboard/profile">Apply For Renew Vehical Registration</Link>
+                  <Link to="/dashboard/registerNVL">Apply For Renew Vehical Registration</Link>
                 </li>
                 <li className="list-group-item">
                   <Link to="/dashboard/settings" >Settings</Link>
@@ -47,14 +47,14 @@ const SideBar = ({ username }) => {
                 <li className="list-group-item">
                   <Link to="/dashboard">Apply For Test</Link>
                 </li>
-                
+
               </ul>
             </div>
           </div>
         </div>
-        </div>
-       
-        </>
+      </div>
+
+    </>
   )
 }
 
