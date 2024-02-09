@@ -14,7 +14,7 @@ import {
 import Home from './assets/components/Home';
 // import Login from './assets/components/Login';
 
-
+import NewRegistration from './assets/components/NewRegistration'
 import UserDashboard from './assets/components/UserDashboard';
 import RegisterForm from './assets/components/RegistrationForm';
 import RegisterVL from './assets/components/RegisterVL';
@@ -36,6 +36,7 @@ function App() {
       <Route path="/" exact element={<Home/>} />
       <Route path="/dashboard" exact element={<UserDashboard/>} />
       <Route path="/register"  element={<RegisterForm/>} />
+      {/* <Route path="/register"  element={<NewRegistration/>} /> */}
       <Route path="/dashboard/registerVL" element={<RegisterVL/>}/>
       <Route path="/dashboard/registerNVL" element={<RegisterNVL/>}/>
       <Route path="/about"  element={<AboutUs/>} />

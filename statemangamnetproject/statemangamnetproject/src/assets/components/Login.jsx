@@ -19,7 +19,7 @@ const Login = ({ onLogin }) => {
            <div className="card col-12 shadow "
 				style={myStyles}>
 				<div className="card-body" style={{marginBottom:'30px'}}>
-      <div className="container  mt-4">
+      <div className="container-md  mt-4" >
         <h2 style={{textAlign:'center'}}>Login</h2>
         <form>
           <div className="mb-4">
