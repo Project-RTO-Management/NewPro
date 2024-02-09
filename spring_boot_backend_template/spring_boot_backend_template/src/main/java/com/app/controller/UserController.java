@@ -20,8 +20,8 @@ import com.app.entities.User;
 import com.app.service.UserService;
 
 @RestController
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequestMapping("/users")
-@CrossOrigin(origins = "http://localhost:3000")
 @Validated
 public class UserController {
     @Autowired
@@ -31,6 +31,7 @@ public class UserController {
     @PostMapping("/register")
 	public String addUserDetails(@RequestBody UserDTO userDto) {
 		System.out.println("in add user ");
+		System.out.println(userDto);
 		return userService.addUserDetails(userDto);
 	}
     

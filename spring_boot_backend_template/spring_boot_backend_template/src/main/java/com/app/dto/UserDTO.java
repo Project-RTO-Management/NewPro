@@ -4,10 +4,9 @@ import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
-<<<<<<< HEAD
-=======
+
+
 import javax.persistence.Column;
->>>>>>> f8dbf985a9b2f33fb40eb24aee6747431822f4fc
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
@@ -32,22 +31,23 @@ import com.app.entities.Address;
 import com.app.entities.Fine;
 import com.app.entities.Gender;
 import com.app.entities.License;
-<<<<<<< HEAD
+
 import com.app.entities.VehicleRegistration;
 import com.app.entities.examApplication;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
-=======
+
 import com.app.entities.Role;
 import com.app.entities.VehicleRegistration;
 import com.app.entities.examApplication;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
 
 import io.swagger.v3.oas.annotations.Hidden;
->>>>>>> f8dbf985a9b2f33fb40eb24aee6747431822f4fc
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -72,15 +72,14 @@ public class UserDTO {
 	//@Enumerated(EnumType.STRING)
 	private Gender gender;
 	@Size(min = 10, max = 10, message = "Invalid Phone length - must be 10 Digit")
-<<<<<<< HEAD
-	private String phone;
-=======
+
 	private String phoneNo;
+
 	
 	
     @Hidden
 	private Role role=Role.APPLICANT;
->>>>>>> f8dbf985a9b2f33fb40eb24aee6747431822f4fc
+
 //	private Address permanentAdd;
 //	private Address correspondAdd;
 //	
