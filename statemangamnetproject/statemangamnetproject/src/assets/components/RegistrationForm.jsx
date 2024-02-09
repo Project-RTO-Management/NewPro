@@ -2,34 +2,44 @@
 import React, { useState } from 'react';
 import CustomNavbar from './CustomNavbar';
 import Footer from './Footer';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link, useNavigate } from 'react-router-dom'; // Import Link from react-router-dom
+import addUserDetails from './axiosMA';
+import { Navigate } from 'react-router-dom';
+
 
 const RegisterForm = () => {
 
   const [formData, setFormData] = useState({
-    username: '',
-    middlename: '',
+    userName: '',
+    s_d_w: '',
     email: '',
     password: '',
-    birthdate: '',
-    mobileNumber: '',
-
+    birthDate: '',
+    phoneNo: '',
     gender: '',
   });
+  const navigate=useNavigate()
 
   const handleChange = (e) => {
+    
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    //   // Simulate saving data (you can replace this with an API call or other logic)
-    //   localStorage.setItem('user', JSON.stringify(formData));
-
-    // Redirect to login page
-    history.push('/login');
+    console.log(formData);
+    try {
+      const response = await addUserDetails(formData); // Call the addUserDetails function
+      navigate('/')
+      // Handle the response or perform any other actions upon successful submission
+    } catch (error) {
+      // Handle errors, display error messages, etc.
+      console.error('Error adding user details:', error);
+    }
   };
+
+
   const myStyles = {
     marginTop: "40px", marginLeft: '3%', marginBottom: "40px"
   };
@@ -42,7 +52,7 @@ const RegisterForm = () => {
         <div className="card-body" style={{ marginBottom: '30px' }}>
           <div className="container  mt-4">
             <h2 style={{ textAlign: 'center' }}>Registration Form</h2>
-            {/* <form onSubmit={handleSubmit}> */}
+            <form onSubmit={handleSubmit}> 
             <div className="mb-3 ">
               <label htmlFor="username" className="form-label">
                 Username
@@ -50,24 +60,24 @@ const RegisterForm = () => {
               <input
                 type="text"
                 className="form-control"
-                id="username"
-                name="username"
-                placeholder='ex: Pranav Bhandare'
-                value={formData.username}
+                id="userName"
+                name="userName"
+                placeholder='ex: Rohit Sharma'
+                value={formData.userName}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-3 ">
-              <label htmlFor="middlename" className="form-label">
+              <label htmlFor="s_d_w" className="form-label">
                 Son/Daughter/Wife-of
               </label>
               <input
                 type="text"
                 className="form-control"
-                id="middlename"
-                name="middlename"
-                value={formData.middlename}
+                id="s_d_w"
+                name="s_d_w"
+                value={formData.s_d_w}
                 onChange={handleChange}
                 required
               />
@@ -110,52 +120,52 @@ const RegisterForm = () => {
               <input
                 type="tel"
                 className="form-control"
-                id="mobileNumber"
-                name="mobileNumber"
-                aria-label="mobileNumber"
+                id="phoneNo"
+                name="phoneNo"
+                aria-label="phoneNo"
                 aria-describedby="basic-addon1"
-                value={formData.mobileNumber}
+                value={formData.phoneNo}
                 onChange={handleChange}
                 required
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="date" className="form-label">
+              <label htmlFor="birthdate" className="form-label">
                 Birthdate
               </label>
               <input
                 type="date"
                 className="form-control"
-                id="date"
-                name="date"
-                value={formData.birthdate}
+                id="birthDate"
+                name="birthDate"
+                value={formData.birthDate}
                 onChange={handleChange}
                 required
               />
             </div>
 
             <div className="mb-3">
-              <label htmlFor="date" className="form-label">
+              <label htmlFor="gender" className="form-label">
                 Gender
               </label>
-              <select class="form-select" aria-label="multiple select example" value={formData.gender} onChange={handleChange}>
-                <option selected>Select from Below</option>
-                <option value="1">Male</option>
-                <option value="2">Female</option>
-                <option value="3">Transgender</option>
+              <select class="form-select" aria-label="multiple select example" name='gender' value={formData.gender} onChange={handleChange}>
+                <option>Select from Below</option>
+                <option value="0">Male</option>
+                <option value="1">Female</option>
+                <option value="2">Transgender</option>
                 <option value="3">Prefer Not To Say</option>
               </select>
             </div>
 
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to="/" className="btn btn-primary mt-3">
+            <Link to="/" className="btn btn-primary mt-3" onClick={handleSubmit}>
               Register
             </Link>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <Link to="/" className="btn btn-primary mt-3">
               Login
             </Link>
-            {/* </form> */}
+            </form> 
           </div>
         </div>
       </div>
