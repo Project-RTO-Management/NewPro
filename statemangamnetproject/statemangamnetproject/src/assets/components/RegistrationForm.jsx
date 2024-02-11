@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import CustomNavbar from './CustomNavbar';
 import Footer from './Footer';
 import { Link, useNavigate } from 'react-router-dom'; // Import Link from react-router-dom
-import addUserDetails from './axiosMA';
-import { Navigate } from 'react-router-dom';
+import { addUserDetails } from './axiosMA';
+import { toast } from 'react-toastify'; 
 
 
 const RegisterForm = () => {
@@ -30,12 +30,16 @@ const RegisterForm = () => {
     e.preventDefault();
     console.log(formData);
     try {
-      const response = await addUserDetails(formData); // Call the addUserDetails function
+      const response = await addUserDetails(formData);
+       // Call the addUserDetails function
       navigate('/')
+    toast.success("Congradulations! You are registered successfully..");
+      
       // Handle the response or perform any other actions upon successful submission
     } catch (error) {
       // Handle errors, display error messages, etc.
       console.error('Error adding user details:', error);
+      toast.error("Oops! Something went wrong.");
     }
   };
 
@@ -170,10 +174,7 @@ const RegisterForm = () => {
         </div>
       </div>
       <div className="col-sm-5">
-
         <img src='/img/signup.jpg' style={{ height: '100%', width: '100%' }}></img>
-
-
       </div>
     </div>
 

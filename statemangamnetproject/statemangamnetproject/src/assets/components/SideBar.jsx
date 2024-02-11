@@ -2,6 +2,7 @@ import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import '../css/list.css'
+import { Card } from 'react-bootstrap';
 const SideBar = ({ username }) => {
   return (
     <>
@@ -10,6 +11,14 @@ const SideBar = ({ username }) => {
 
         <div className="">
           <div className="card">
+            <div className='card-body'>
+              <h5 className='card-title'>Personal Info</h5>
+              <ul className="list-group">
+              <li className='list-group-item'>
+                <Link to="/personalInfo">Update Info </Link>
+              </li>
+              </ul>
+            </div>
             <div className="card-body">
               <h5 className="card-title">Licence</h5>
               <ul className="list-group">
@@ -34,9 +43,6 @@ const SideBar = ({ username }) => {
                 </li>
                 <li className="list-group-item">
                   <Link to="/dashboard/registerNVL">Apply For Renew Vehical Registration</Link>
-                </li>
-                <li className="list-group-item">
-                  <Link to="/dashboard/settings" >Settings</Link>
                 </li>
                 {/* Add more navigation links as needed */}
               </ul>
